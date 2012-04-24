@@ -1,9 +1,4 @@
-" vgod's vimrc
-" Tsung-Hsiang (Sean) Chang <vgod@vgod.tw>
-" Fork me on GITHUB  https://github.com/vgod/vimrc
-
-" read https://github.com/vgod/vimrc/blob/master/README.md for more info
-
+" brooky's vimrc
 
 " For pathogen.vim: auto load all plugins in .vim/bundle
 
@@ -22,6 +17,7 @@ set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
+set nu      		" show line numbers
 
 
 filetype on           " Enable filetype detection
@@ -59,7 +55,8 @@ set wildignore=*.o,*.class,*.pyc
 
 set autoindent		" auto indentation
 set incsearch		" incremental search
-set nobackup		" no *~ backup files
+set backup              " save backup files
+set backupdir=.         " where to put backup file
 set copyindent		" copy the previous indentation on autoindenting
 set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
@@ -126,6 +123,10 @@ endfun
 let mapleader=","
 let g:mapleader=","
 
+" quick alias to leave vim
+nmap ,w :x<CR> 
+nmap ,q :q!<CR>
+
 "replace the current word in all opened buffers
 map <leader>r :call Replace()<CR>
 
@@ -152,9 +153,9 @@ set wmh=0                     " set the min height of a window to 0 so we can ma
 " move around tabs. conflict with the original screen top/bottom
 " comment them out if you want the original H/L
 " go to prev tab 
-map <S-H> gT
+" map <S-H> gT
 " go to next tab
-map <S-L> gt
+" map <S-L> gt
 
 " new tab
 map <C-t><C-t> :tabnew<CR>
@@ -163,6 +164,7 @@ map <C-t><C-w> :tabclose<CR>
 
 " ,/ turn off search highlighting
 nmap <leader>/ :nohl<CR>
+noremap <F4> :set hls!<CR>
 
 " Bash like keys for the command line
 cnoremap <C-A>      <Home>
@@ -221,9 +223,10 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
@@ -238,6 +241,76 @@ set cot-=preview "disable doc preview in omnicomplete
 " make CSS omnicompletion work for SASS and SCSS
 autocmd BufNewFile,BufRead *.scss             set ft=scss.css
 autocmd BufNewFile,BufRead *.sass             set ft=sass.css
+
+
+"---------------------------------------------
+" for PHP programming
+"---------------------------------------------
+autocmd FileType php set makeprg=php\ -l\ %
+autocmd FileType php set errorformat=%m\ in\ %f\ on\ line\ %l
+
+
+"---------------------------------------------
+" for edit CSS
+"---------------------------------------------
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
+"---------------------------------------------
+" for edit HTML
+"---------------------------------------------
+autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+
+"---------------------------------------------
+" file type detection
+"---------------------------------------------
+" highlight action script and mxml syntax
+au BufNewFile,BufRead *.mxml set filetype=mxml
+au BufNewFile,BufRead *.as set filetype=actionscript
+au BufNewFile,BufRead *.less set filetype=less
+
+
+"---------------------------------------------
+" for coloring
+"---------------------------------------------
+" 以下是顏色設定，詳細請 :h hi
+" colorscheme ir_black
+hi Comment      term=bold ctermfg=darkcyan
+hi Constant     term=underline ctermfg=Red
+hi Special      term=bold ctermfg=Magenta
+hi Identifier   term=underline ctermfg=cyan
+hi Statement    term=bold ctermfg=Brown
+hi PreProc      term=bold ctermfg=DarkYellow
+hi Type         term=bold ctermfg=DarkGreen
+hi Ignore       ctermfg=white
+hi Error        term=reverse ctermbg=Red ctermfg=White
+hi Todo         term=standout ctermbg=Yellow ctermfg=Red
+hi Search       term=standout ctermbg=Yellow ctermfg=Black
+hi ErrorMsg     term=reverse ctermbg=Red ctermfg=White
+hi StatusLine   ctermfg=darkblue  ctermbg=gray
+hi StatusLineNC ctermfg=brown   ctermbg=darkblue
+
+
+"---------------------------------------------
+" set GUI scheme and font for gVim
+"---------------------------------------------
+colorscheme koehler
+set guifont=monospace\ 12
+
+
+"---------------------------------------------
+" use w!! to write protected files
+"---------------------------------------------
+cmap w!! %!sudo tee > /dev/null % 
+
+
+"---------------------------------------------
+" copy to system buffer
+"---------------------------------------------
+vnoremap <C-S-C> "+y<CR>
+map <C-S-c>  "+y<CR>
+map <C-S-v> "+p<CR>
+
 
 "--------------------------------------------------------------------------- 
 " ENCODING SETTINGS
@@ -321,3 +394,58 @@ let g:tagbar_autofocus = 1
 
 " --- PowerLine
 " let g:Powerline_symbols = 'fancy' " require fontpatcher
+
+" --- Tlist
+noremap <F3> :Tlist<CR>
+
+" --- NERDTree
+nnoremap <silent> <F5> :NERDTree<CR>
+autocmd BufEnter * NERDTreeMirror
+
+"---------------------------------------------
+" settings for snipMate + AutoComplPop
+" see http://www.vim.org/scripts/script.php?script_id=1879
+" see http://www.vim.org/scripts/script.php?script_id=2540
+" see http://jamcode.posterous.com/jam-vimvim-plugin-autocomplpop-and-snipmate
+"---------------------------------------------
+let g:acp_completeOption='.,w,b,u,t,i,k'
+let g:acp_behaviorSnipmateLength=1
+" set runtimepath+=~/.vim/autocomplpop
+" set runtimepath+=~/.vim/autocomplpop/after
+" set runtimepath+=~/.vim/snipMate
+" set runtimepath+=~/.vim/snipMate/after
+" helptags ~/.vim/autocomplpop/doc
+" helptags ~/.vim/snipMate/doc
+
+
+"---------------------------------------------
+" using ctags
+"---------------------------------------------
+set tags=tags;          " 使用 tags 這個檔案 for jump between code
+
+
+"---------------------------------------------
+" shorcut for ctags
+" learn from
+" http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
+"---------------------------------------------
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+"--------------------
+" For YankRing.vim
+" http://www.vim.org/scripts/script.php?script_id=1234
+"--------------------
+nnoremap <silent> <F2> :YRShow<CR>
+
+"--------------------
+" For JavaScriptLint
+" Ref: http://panweizeng.com/write-javascript-in-vim.html
+"--------------------
+"设置javascriptlint
+autocmd FileType javascript set makeprg=~/bin/jsl\ -nologo\ -nofilelisting\ -nosummary\ -nocontext\ -conf\ ~/bin/jsl.default.conf\ -process\ %
+autocmd FileType javascript set errorformat=%f(%l):\ %m
+" autocmd FileType javascript inoremap <silent> <F9> <C-O>:make<CR>
+" autocmd FileType javascript map <silent> <F9> :make<CR>
+
+

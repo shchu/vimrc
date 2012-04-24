@@ -64,3 +64,6 @@
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/vim-pdv"]
+	path = bundle/vim-pdv
+	url = https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim

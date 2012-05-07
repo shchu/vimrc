@@ -342,21 +342,6 @@ endfun
 " PLUGIN SETTINGS
 "--------------------------------------------------------------------------- 
 
-
-" ------- vim-latex - many latex shortcuts and snippets {
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
-" can be called correctly.
-set shellslash
-set grepprg=grep\ -nH\ $*
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-"}
-
-
 " --- AutoClose - Inserts matching bracket, paren, brace or quote 
 " fixed the arrow key problems caused by AutoClose
 if !has("gui_running")	
@@ -438,6 +423,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 "--------------------
 nnoremap <silent> <F2> :YRShow<CR>
 
+
 "--------------------
 " For JavaScriptLint
 " Ref: http://panweizeng.com/write-javascript-in-vim.html
@@ -448,4 +434,12 @@ autocmd FileType javascript set errorformat=%f(%l):\ %m
 " autocmd FileType javascript inoremap <silent> <F9> <C-O>:make<CR>
 " autocmd FileType javascript map <silent> <F9> :make<CR>
 
+
+"--------------------
+" For phpDocumentor (pdv)
+" Ref: https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim
+"--------------------
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR> 
 

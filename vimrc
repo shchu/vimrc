@@ -56,7 +56,8 @@ set wildignore=*.o,*.class,*.pyc
 set autoindent		" auto indentation
 set incsearch		" incremental search
 set backup              " save backup files
-set backupdir=.         " where to put backup file
+set backupdir=~/.vim/backup/ " where to put backup file
+set dir=~/.vim/tmp      " tell vim where to put swap files
 set copyindent		" copy the previous indentation on autoindenting
 set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
@@ -70,8 +71,8 @@ set tm=500
 
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
-   set softtabstop=3 
-   set shiftwidth=3 
+   set softtabstop=4
+   set shiftwidth=4
 
    au FileType Makefile set noexpandtab
 "}      							
@@ -380,9 +381,6 @@ let g:tagbar_autofocus = 1
 " --- PowerLine
 " let g:Powerline_symbols = 'fancy' " require fontpatcher
 
-" --- Tlist
-noremap <F3> :Tlist<CR>
-
 " --- NERDTree
 nnoremap <silent> <F5> :NERDTree<CR>
 autocmd BufEnter * NERDTreeMirror
@@ -395,12 +393,6 @@ autocmd BufEnter * NERDTreeMirror
 "---------------------------------------------
 let g:acp_completeOption='.,w,b,u,t,i,k'
 let g:acp_behaviorSnipmateLength=1
-" set runtimepath+=~/.vim/autocomplpop
-" set runtimepath+=~/.vim/autocomplpop/after
-" set runtimepath+=~/.vim/snipMate
-" set runtimepath+=~/.vim/snipMate/after
-" helptags ~/.vim/autocomplpop/doc
-" helptags ~/.vim/snipMate/doc
 
 
 "---------------------------------------------
@@ -443,3 +435,8 @@ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
+
+"--------------------
+" fix bug: something breaks the syntax on
+"--------------------
+syntax on

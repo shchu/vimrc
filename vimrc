@@ -132,7 +132,7 @@ nmap ,q :q!<CR>
 map <leader>r :call Replace()<CR>
 
 " open the error console
-map <leader>cc :botright cope<CR> 
+map <leader>er :botright cope<CR> 
 " move to next error
 map <leader>] :cn<CR>
 " move to the prev error
@@ -164,8 +164,8 @@ map <C-t><C-t> :tabnew<CR>
 map <C-t><C-w> :tabclose<CR> 
 
 " ,/ turn off search highlighting
-nmap <leader>/ :nohl<CR>
-noremap <F4> :set hls!<CR>
+nmap <leader>/ :set hls!<CR>
+" noremap <F4> :set hls!<CR>
 
 " Bash like keys for the command line
 cnoremap <C-A>      <Home>
@@ -431,10 +431,9 @@ autocmd FileType javascript set errorformat=%f(%l):\ %m
 " For phpDocumentor (pdv)
 " Ref: https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim
 "--------------------
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR> 
-
+inoremap <leader>pd <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <leader>pd :call PhpDocSingle()<CR> 
+vnoremap <leader>pd :call PhpDocRange()<CR> 
 
 "--------------------
 " fix bug: something breaks the syntax on

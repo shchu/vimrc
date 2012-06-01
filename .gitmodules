@@ -13,6 +13,8 @@
 [submodule "bundle/CuteErrorMarker"]
 	path = bundle/CuteErrorMarker
 	url = https://github.com/Twinside/vim-cuteErrorMarker.git
+        ignore = dirty
+
 [submodule "bundle/yankring"]
 	path = bundle/yankring
 	url = https://github.com/vim-scripts/YankRing.vim.git
@@ -67,6 +69,7 @@
 [submodule "bundle/AutoComplPop"]
 	path = bundle/AutoComplPop
 	url = https://github.com/vim-scripts/AutoComplPop
+        ignore = dirty
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git@github.com:brooky-yen/snipmate.vim.git

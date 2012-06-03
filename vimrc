@@ -382,7 +382,7 @@ let g:tagbar_autofocus = 1
 " let g:Powerline_symbols = 'fancy' " require fontpatcher
 
 " --- NERDTree
-nnoremap <silent> <F5> :NERDTree<CR>
+nnoremap <silent> <F3> :NERDTree<CR>
 autocmd BufEnter * NERDTreeMirror
 
 "---------------------------------------------

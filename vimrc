@@ -14,7 +14,6 @@
  " following php coding standard PSR-1 and PSR-2 documents.
  Bundle 'stephpy/vim-php-cs-fixer'
 
- Bundle 'vim-scripts/Smart-Parentheses.git'
  Bundle 'Townk/vim-autoclose.git'
  Bundle 'tpope/vim-surround.git'
  Bundle 'Twinside/vim-cuteErrorMarker.git'
@@ -43,7 +42,9 @@
  Bundle "honza/snipmate-snippets"
  
  " install snipmate
- Bundle 'brooky-yen/snipmate.vim.git'
+ " Bundle 'brooky-yen/snipmate.vim.git'
+ Bundle "garbas/vim-snipmate"
+ 
 
  " haml and sass
  Bundle 'tpope/vim-haml'

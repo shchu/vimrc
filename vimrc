@@ -11,9 +11,9 @@
  " My Bundles here:
  " original repos on github
  
- " following php coding standard PSR-1 and PSR-2 documents.
- Bundle 'stephpy/vim-php-cs-fixer'
-
+ " general 
+ Bundle 'tpope/vim-fugitive'
+ Bundle 'mileszs/ack.vim'
  Bundle 'Townk/vim-autoclose.git'
  Bundle 'tpope/vim-surround.git'
  Bundle 'Twinside/vim-cuteErrorMarker.git'
@@ -22,19 +22,17 @@
  Bundle 'sukima/xmledit.git'
  Bundle 'vim-scripts/matchit.zip.git'
  Bundle 'vim-scripts/OmniCppComplete.git'
- Bundle 'vgod/scala-vim-support.git'
  Bundle 'scrooloose/nerdtree.git'
+ Bundle 'jistr/vim-nerdtree-tabs'
  Bundle 'scrooloose/nerdcommenter.git'
  Bundle 'Lokaltog/vim-easymotion.git'
  Bundle 'majutsushi/tagbar'
  Bundle 'vim-scripts/pythoncomplete.git'
  Bundle 'Lokaltog/vim-powerline.git'
- Bundle 'pangloss/vim-javascript.git'
- Bundle 'hallettj/jslint.vim'
- Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
- Bundle 'kchmck/vim-coffee-script'
- Bundle 'vim-scripts/AutoComplPop'
+ " Auto complete pop up
+ Bundle 'brooky-yen/AutoComplPop'
  Bundle 'brookhong/DBGPavim.git'
+ Bundle 'vim-scripts/indent-motion'
 
  " dependencies for vim-snipmate
  Bundle "MarcWeber/vim-addon-mw-utils"
@@ -44,10 +42,31 @@
  " install snipmate
  " Bundle 'brooky-yen/snipmate.vim.git'
  Bundle "garbas/vim-snipmate"
+
+ " syntac checking for lots of languages
+ Bundle "scrooloose/syntastic"
+ 
+"--------------------
+" for php
+"--------------------
+ " following php coding standard PSR-1 and PSR-2 documents.
+ Bundle 'stephpy/vim-php-cs-fixer'
+ Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+ Bundle 'arnaud-lb/vim-php-namespace'
  
 
+"--------------------
+" for haml, sass
+"--------------------
  " haml and sass
  Bundle 'tpope/vim-haml'
+
+"--------------------
+" for javascript
+"--------------------
+ Bundle 'pangloss/vim-javascript.git'
+ Bundle 'hallettj/jslint.vim'
+ Bundle 'kchmck/vim-coffee-script'
 
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'

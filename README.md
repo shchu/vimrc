@@ -7,7 +7,8 @@ Why this fork
 This vimrc aimes to collect some useful resources for PHP & Web developers.
 
 This is a fork from vgod''s vimrc (https://github.com/vgod/vimrc)
-I remove some plugins I think non-necessary for web development, and add some plugins I think useful.
+Some bundles not related to web development are removed, some useful plugins are added.
+In addition, Vundle (https://github.com/gmarik/vundle) is used to replace Pathogen (https://github.com/tpope/vim-pathogen/) because I found Vundle to be more elegent.
 
 Author: Brooky Yen <brooky.yen@gmail.com>
 Fork me on GITHUB  https://github.com/brooky-yen/vimrc
@@ -42,32 +43,50 @@ http://www.jslint.com/
 
 Other Useful vim Plugins included
 ----------------
-* CuteErrorMarker
-* OmniCppComplete
+* ack
 * autoclose
+* CuteErrorMarker
 * easymotion
 * matchit
 * nerdcommenter
+* OmniCppComplete
 * powerline
 * surround
 * tagbar
 * yankring
 
 
-INSTALL
+Manually INSTALL
 ----------------
-Use curl (for Mac OS X):
 
-     curl -o - https://raw.github.com/brooky-yen/vimrc/master/auto-install.sh | sh
+1. clone this vimrc
+    ```
+    git clone https://github.com/brooky-yen/vimrc.git
+    ```
 
-or wget (for most UNIX platforms):
+2. Link .vim folder and vimrc
+    ln -s vimrc ~/.vim;
+    ln -s vimrc/vimrc ~/.vimrc;
+    ln -s vimrc/gvimrc ~/.gvimrc;
 
-     wget -O - https://raw.github.com/brooky-yen/vimrc/master/auto-install.sh | sh
 
+3. create backup and tmp folder
+    ```
+    mkdir ~/.vim/backup;
+    mkdir ~/.vim/tmp;
+    ```
 
-For detailed installation instruction, please visit vgod''s vimrc
-https://github.com/vgod/vimrc
+4. install configured bundles
+    ```
+    vim;
+    :BundleInstall
+    ```
 
+5. make command-T
+    ```
+    cd bundle/command-t/ruby/command-t;
+    ruby extconf.rb && make;
+    ```
 
 
 HOW TO USE

@@ -115,8 +115,8 @@ let mapleader=","
 let g:mapleader=","
 
 " quick alias to leave vim
-nmap ,w :x<CR> 
-nmap ,q :q!<CR>
+nmap <leader>w :x<CR> 
+nmap <leader>q :q!<CR>
 
 "replace the current word in all opened buffers
 map <leader>r :call Replace()<CR>
@@ -357,7 +357,7 @@ let g:CommandTMaxHeight = 15
 let g:SuperTabDefaultCompletionType = "context"
 
 " --- EasyMotion
-"let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
+let g:EasyMotion_leader_key = '<Leader><Leader>' " default is <Leader>w
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
 
@@ -373,7 +373,8 @@ let g:tagbar_autofocus = 1
 
 " --- NERDTree
 nnoremap <silent> <F3> :NERDTree<CR>
-autocmd BufEnter * NERDTreeMirror
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 
 "---------------------------------------------
 " settings for snipMate + AutoComplPop
@@ -433,8 +434,8 @@ syntax on
 "--------------------
 " auto build php after saving files
 "--------------------
-" autocmd BufWritePost *.php make %
-" autocmd BufWritePost *.php cwindow
+autocmd BufWritePost *.php make %
+autocmd BufWritePost *.php cwindow
 
 
 "--------------------
@@ -442,4 +443,17 @@ syntax on
 "--------------------
 " au! BufWritePost .vimrc source $MYVIMRC
 
+
+"--------------------
+" insert php namespace
+"--------------------
+imap <buffer> <Leader>u <C-O>:call PhpInsertUse()<CR>
+map <buffer> <Leader>u :call PhpInsertUse()<CR>
+
+
+"--------------------
+" for using php-cs-fixer
+"--------------------
+nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
+nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
 

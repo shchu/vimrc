@@ -447,8 +447,8 @@ autocmd BufWritePost *.php cwindow
 "--------------------
 " insert php namespace
 "--------------------
-imap <buffer> <Leader>u <C-O>:call PhpInsertUse()<CR>
-map <buffer> <Leader>u :call PhpInsertUse()<CR>
+imap <buffer> <leader><Leader>u <C-O>:call PhpInsertUse()<CR>
+map <buffer> <leader><Leader>u :call PhpInsertUse()<CR>
 
 
 "--------------------
@@ -456,4 +456,38 @@ map <buffer> <Leader>u :call PhpInsertUse()<CR>
 "--------------------
 nnoremap <silent><leader>pcd :call PhpCsFixerFixDirectory()<CR>
 nnoremap <silent><leader>pcf :call PhpCsFixerFixFile()<CR>
+
+
+"--------------------
+" Auto compile .haml files on save, but only
+" if there's a .autocompilehaml file in the cwd.
+" Depends on a `haml` executable. `sudo gem install haml`
+"--------------------
+au BufWritePost *.haml call HamlMake()
+
+function! HamlMake()
+    py << ENDOFPYTHON
+import os
+import vim
+
+in_file = vim.current.buffer.name
+dirname = os.path.dirname(in_file)
+if os.path.exists(dirname + "/.autohaml"):
+    out_file = in_file[0:-5] + ".html"
+    os.system("haml %s > %s" % (in_file, out_file))
+
+ENDOFPYTHON
+endfunction
+
+
+"--------------------
+"Markdown to HTML  
+"--------------------
+nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
+
+"--------------------
+" setting for vim-nerdtree-tabs
+"--------------------
+let g:nerdtree_tabs_open_on_gui_startup=0
+let g:nerdtree_tabs_open_on_new_tab=0
 

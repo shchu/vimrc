@@ -250,6 +250,7 @@ autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " for edit HTML
 "---------------------------------------------
 autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType haml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 
 "---------------------------------------------
@@ -352,6 +353,8 @@ endif
 
 " --- Command-T
 let g:CommandTMaxHeight = 15
+" refresh commandT
+map <Leader>f :CommandTFlush<CR>   
 
 " --- SuperTab
 let g:SuperTabDefaultCompletionType = "context"
@@ -447,8 +450,9 @@ autocmd BufWritePost *.php cwindow
 "--------------------
 " insert php namespace
 "--------------------
-imap <buffer> <leader><Leader>u <C-O>:call PhpInsertUse()<CR>
-map <buffer> <leader><Leader>u :call PhpInsertUse()<CR>
+inoremap <leader><Leader>u <ESC>:call PhpInsertUse()<CR>
+nnoremap <leader><Leader>u :call PhpInsertUse()<CR>
+vnoremap <leader><Leader>u :call PhpInsertUse()<CR>
 
 
 "--------------------
@@ -491,3 +495,15 @@ nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_new_tab=0
 
+"--------------------
+" setting for zen coding
+"--------------------
+imap <leader>z <C-y>,
+
+"--------------------
+" setting for Ctrl-P
+" 0 - don't follow symbolic links.
+" 1 - follow but ignore looped internal symlinks to avoid duplicates.
+" 2 - follow all symlinks indiscriminately.
+"--------------------
+let g:ctrlp_follow_symlinks = 0

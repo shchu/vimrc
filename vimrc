@@ -56,10 +56,11 @@
  
 
 "--------------------
-" for haml, sass
+" for haml, sass, html
 "--------------------
  " haml and sass
  Bundle 'tpope/vim-haml'
+ Bundle 'mattn/zencoding-vim'
 
 "--------------------
 " for javascript
@@ -68,8 +69,14 @@
  Bundle 'hallettj/jslint.vim'
  Bundle 'kchmck/vim-coffee-script'
 
+
+"--------------------
+" ctrlp
+"--------------------
+ Bundle 'kien/ctrlp.vim'
+
  " non github repos
- Bundle 'git://git.wincent.com/command-t.git'
+ " Bundle 'git://git.wincent.com/command-t.git'
 
  filetype plugin indent on     " required!
  "

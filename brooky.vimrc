@@ -563,18 +563,28 @@ endfun
         " set focus to TagBar when opening it
         let g:tagbar_autofocus = 1
     "}
-
     
-    
-" --- PowerLine
-" let g:Powerline_symbols = 'fancy' " require fontpatcher
+    " PowerLine {
+        " let g:Powerline_symbols = 'fancy' " require fontpatcher
+    " }
 
-" --- NERDTree
-nnoremap <silent> <F3> :NERDTree<CR>
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+    " NERDTree {
+        nnoremap <silent> <F3> :NERDTree<CR>
+        map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
+        map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+        map <leader>e :NERDTreeFind<CR>
+        nmap <leader>nt :NERDTreeFind<CR>
 
-
+        let NERDTreeShowBookmarks=1
+        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+        let NERDTreeChDirMode=0
+        let NERDTreeQuitOnOpen=1
+        let NERDTreeMouseMode=2
+        let NERDTreeShowHidden=1
+        let NERDTreeKeepTreeInNewTab=1
+        let g:nerdtree_tabs_open_on_gui_startup=0
+    " }
 
 
 "---------------------------------------------

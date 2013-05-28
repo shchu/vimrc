@@ -586,6 +586,10 @@ endfun
         let g:nerdtree_tabs_open_on_gui_startup=0
     " }
 
+    " vim-nerdtree-tabs {
+        let g:nerdtree_tabs_open_on_gui_startup=0
+        let g:nerdtree_tabs_open_on_new_tab=0
+    " }
 
 "---------------------------------------------
 " using ctags
@@ -687,11 +691,6 @@ endfunction
 "--------------------
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 
-"--------------------
-" setting for vim-nerdtree-tabs
-"--------------------
-let g:nerdtree_tabs_open_on_gui_startup=0
-let g:nerdtree_tabs_open_on_new_tab=0
 
 "--------------------
 " setting for zen coding

@@ -8,11 +8,21 @@
  " required! 
  Bundle 'gmarik/vundle'
 
+
+" In your .vimrc.bundles.local file"
+" list only the plugin groups you will use
+if !exists('g:brooky_bundle_groups')
+    let g:brooky_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'python', 'twig', 'javascript', 'html']
+endif
+
+
  " My Bundles here:
  " original repos on github
  
- " general 
- Bundle 'tpope/vim-fugitive'
+"--------------------
+" general 
+"--------------------
+ Bundle 'altercation/vim-colors-solarized'
  Bundle 'mileszs/ack.vim'
  Bundle 'Townk/vim-autoclose.git'
  Bundle 'tpope/vim-surround.git'
@@ -24,35 +34,64 @@
  Bundle 'vim-scripts/OmniCppComplete.git'
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'jistr/vim-nerdtree-tabs'
- Bundle 'scrooloose/nerdcommenter.git'
  Bundle 'Lokaltog/vim-easymotion.git'
- Bundle 'majutsushi/tagbar'
  Bundle 'vim-scripts/pythoncomplete.git'
  Bundle 'Lokaltog/vim-powerline.git'
- " Auto complete pop up
- Bundle 'brooky-yen/AutoComplPop'
- Bundle 'brookhong/DBGPavim.git'
+ Bundle 'mbbill/undotree'
+ Bundle 'airblade/vim-gitgutter'
+ Bundle 'kien/ctrlp.vim'
+ Bundle 'danro/rename.vim'
  Bundle 'vim-scripts/indent-motion'
-
- " dependencies for vim-snipmate
- Bundle "MarcWeber/vim-addon-mw-utils"
- Bundle "tomtom/tlib_vim"
- Bundle "honza/snipmate-snippets"
  
- " install snipmate
- " Bundle 'brooky-yen/snipmate.vim.git'
- Bundle "garbas/vim-snipmate"
+"--------------------
+" general programming
+"--------------------
+ Bundle 'tpope/vim-fugitive'
 
  " syntac checking for lots of languages
  Bundle "scrooloose/syntastic"
+ Bundle 'scrooloose/nerdcommenter.git'
+ Bundle 'godlygeek/tabular'
+ Bundle 'majutsushi/tagbar'
  
+ " visually displaying indent levels
+ Bundle "nathanaelkane/vim-indent-guides"
+ 
+
+"--------------------
+" Snippets & AutoComplete
+"--------------------
+if count(g:brooky_bundle_groups, 'snipmate')
+    " dependencies for vim-snipmate
+    Bundle "MarcWeber/vim-addon-mw-utils"
+    Bundle "tomtom/tlib_vim"
+    " install snipmate
+    " Bundle 'brooky-yen/snipmate.vim.git'
+    Bundle "garbas/vim-snipmate"
+    Bundle 'honza/vim-snippets'
+    " Source support_function.vim to support vim-snippets.
+    if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
+        source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
+    endif
+elseif count(g:brooky_bundle_groups, 'neocomplcache')
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/neosnippet'
+    Bundle 'honza/vim-snippets'
+endif
+
+ " Auto complete pop up
+ " Bundle 'brooky-yen/AutoComplPop'
+
+
 "--------------------
 " for php
 "--------------------
  " following php coding standard PSR-1 and PSR-2 documents.
  Bundle 'stephpy/vim-php-cs-fixer'
- Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+ Bundle 'spf13/PIV'
+ " Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
  Bundle 'arnaud-lb/vim-php-namespace'
+ Bundle 'brookhong/DBGPavim.git'
  
 
 "--------------------
@@ -65,15 +104,16 @@
 "--------------------
 " for javascript
 "--------------------
+ Bundle 'elzr/vim-json'
  Bundle 'pangloss/vim-javascript.git'
  Bundle 'hallettj/jslint.vim'
  Bundle 'kchmck/vim-coffee-script'
 
 
 "--------------------
-" ctrlp
+" twig
 "--------------------
- Bundle 'kien/ctrlp.vim'
+ Bundle 'evidens/vim-twig'
 
  " non github repos
  " Bundle 'git://git.wincent.com/command-t.git'

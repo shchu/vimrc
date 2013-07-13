@@ -12,7 +12,7 @@
 " In your .vimrc.bundles.local file"
 " list only the plugin groups you will use
 if !exists('g:brooky_bundle_groups')
-    let g:brooky_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'python', 'twig', 'javascript', 'html']
+    let g:brooky_bundle_groups=['general', 'programming', 'php', 'python', 'twig', 'javascript', 'html']
 endif
 
 
@@ -26,7 +26,7 @@ endif
  Bundle 'mileszs/ack.vim'
  Bundle 'Townk/vim-autoclose.git'
  Bundle 'tpope/vim-surround.git'
- Bundle 'Twinside/vim-cuteErrorMarker.git'
+ " Bundle 'Twinside/vim-cuteErrorMarker.git'
  Bundle 'vim-scripts/YankRing.vim.git'
  Bundle 'vim-scripts/VisIncr.git'
  Bundle 'sukima/xmledit.git'
@@ -42,7 +42,8 @@ endif
  Bundle 'kien/ctrlp.vim'
  Bundle 'danro/rename.vim'
  Bundle 'vim-scripts/indent-motion'
- 
+ Bundle 'Valloric/YouCompleteMe'
+
 "--------------------
 " general programming
 "--------------------
@@ -57,30 +58,11 @@ endif
  " visually displaying indent levels
  Bundle "nathanaelkane/vim-indent-guides"
  
-
 "--------------------
 " Snippets & AutoComplete
 "--------------------
-if count(g:brooky_bundle_groups, 'snipmate')
-    " dependencies for vim-snipmate
-    Bundle "MarcWeber/vim-addon-mw-utils"
-    Bundle "tomtom/tlib_vim"
-    " install snipmate
-    " Bundle 'brooky-yen/snipmate.vim.git'
-    Bundle "garbas/vim-snipmate"
-    Bundle 'honza/vim-snippets'
-    " Source support_function.vim to support vim-snippets.
-    if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
-        source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
-    endif
-elseif count(g:brooky_bundle_groups, 'neocomplcache')
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/neosnippet'
-    Bundle 'honza/vim-snippets'
-endif
-
- " Auto complete pop up
- " Bundle 'brooky-yen/AutoComplPop'
+ Bundle 'SirVer/ultisnips'
+ Bundle 'honza/vim-snippets'
 
 
 "--------------------
@@ -88,8 +70,8 @@ endif
 "--------------------
  " following php coding standard PSR-1 and PSR-2 documents.
  Bundle 'stephpy/vim-php-cs-fixer'
- Bundle 'spf13/PIV'
- " Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
+ " Bundle 'spf13/PIV'
+ Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
  Bundle 'arnaud-lb/vim-php-namespace'
  Bundle 'brookhong/DBGPavim.git'
  

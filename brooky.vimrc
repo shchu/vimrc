@@ -422,9 +422,8 @@ endfun
     " }
 
     " Ultisnips {
-        let g:UltiSnipsExpandTrigger="<c-j>"
-        let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-        let g:always_use_first_snippet=1
+        let g:UltiSnipsExpandTrigger = "<c-j>"
+        " let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
     " }
     
     " Tabularize {
@@ -473,6 +472,7 @@ endfun
 
         " toggle TagBar with F7
         nnoremap <silent> <F7> :TagbarToggle<CR> 
+        map <Leader>t :TagbarToggle<CR>
         " set focus to TagBar when opening it
         let g:tagbar_autofocus = 1
     "}

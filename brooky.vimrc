@@ -381,6 +381,7 @@ endfun
         let g:ctrlp_working_path_mode = 'ra'
         nnoremap <silent> <D-t> :CtrlP<CR>
         nnoremap <silent> <D-r> :CtrlPMRU<CR>
+        nnoremap <Leader><Leader>f :CtrlPClearCache<CR>
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
@@ -453,7 +454,7 @@ endfun
     "}
 
     " TagBar {
-        nnoremap <silent> <leader>tt :TagbarToggle<CR>
+        nnoremap <silent> <Leader><Leader>t :TagbarToggle<CR>
 
         " If using go please install the gotags program using the following
         " go install github.com/jstemmer/gotags
@@ -482,17 +483,19 @@ endfun
     " }
 
     " NERDTree {
-        nnoremap <silent> <F3> :NERDTree<CR>
-        map <Leader>n <plug>NERDTreeTabsToggle<CR>
+        " nnoremap <silent> <F3> :NERDTree<CR>
+        nnoremap <Leader><Leader>n :NERDTreeToggle<CR>
+        nnoremap <Leader><Leader>nm :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+        nnoremap <leader><Leader>ne :NERDTreeFind<CR>
 
-        map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-        map <leader>e :NERDTreeFind<CR>
-        nmap <leader>nt :NERDTreeFind<CR>
+        " map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+        "map <leader>e :NERDTreeFind<CR>
+        " nmap <leader>nt :NERDTreeFind<CR>
 
         let NERDTreeShowBookmarks=1
         let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
         let NERDTreeChDirMode=0
-        let NERDTreeQuitOnOpen=1
+        let NERDTreeQuitOnOpen=0
         let NERDTreeMouseMode=2
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1

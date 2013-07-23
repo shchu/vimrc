@@ -379,9 +379,9 @@ endfun
         "--------------------
         let g:ctrlp_follow_symlinks = 0
         let g:ctrlp_working_path_mode = 'ra'
-        nnoremap <silent> <D-t> :CtrlP<CR>
-        nnoremap <silent> <D-r> :CtrlPMRU<CR>
-        nnoremap <Leader><Leader>f :CtrlPClearCache<CR>
+        " nnoremap <silent> <D-t> :CtrlP<CR>
+        " nnoremap <silent> <D-r> :CtrlPMRU<CR>
+        nmap <Leader>f :CtrlPClearCache<CR>
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
@@ -454,7 +454,7 @@ endfun
     "}
 
     " TagBar {
-        nnoremap <silent> <Leader><Leader>t :TagbarToggle<CR>
+        nmap <silent> <Leader>t :TagbarToggle<CR>
 
         " If using go please install the gotags program using the following
         " go install github.com/jstemmer/gotags
@@ -472,8 +472,7 @@ endfun
             \ }
 
         " toggle TagBar with F7
-        nnoremap <silent> <F7> :TagbarToggle<CR> 
-        map <Leader>t :TagbarToggle<CR>
+        " nnoremap <silent> <F7> :TagbarToggle<CR> 
         " set focus to TagBar when opening it
         let g:tagbar_autofocus = 1
     "}
@@ -484,9 +483,9 @@ endfun
 
     " NERDTree {
         " nnoremap <silent> <F3> :NERDTree<CR>
-        nnoremap <Leader><Leader>n :NERDTreeToggle<CR>
-        nnoremap <Leader><Leader>nm :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-        nnoremap <leader><Leader>ne :NERDTreeFind<CR>
+        nmap <Leader>n :NERDTreeToggle<CR>
+        nmap <Leader>nm :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+        nmap <Leader>ne :NERDTreeFind<CR>
 
         " map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
         "map <leader>e :NERDTreeFind<CR>
@@ -613,3 +612,9 @@ nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 "--------------------
 imap <leader>z <C-y>,
 
+"--------------------
+" visual mode search
+" from: http://vim.wikia.com/wiki/Search_only_over_a_visual_range
+"--------------------
+vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l

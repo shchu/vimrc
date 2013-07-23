@@ -74,6 +74,7 @@ endif
  Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
  Bundle 'arnaud-lb/vim-php-namespace'
  Bundle 'brookhong/DBGPavim.git'
+ Bundle 'shawncplus/phpcomplete.vim'
  
 
 "--------------------

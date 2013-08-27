@@ -31,7 +31,6 @@ endif
  Bundle 'vim-scripts/VisIncr.git'
  Bundle 'sukima/xmledit.git'
  Bundle 'vim-scripts/matchit.zip.git'
- Bundle 'vim-scripts/OmniCppComplete.git'
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'jistr/vim-nerdtree-tabs'
  Bundle 'Lokaltog/vim-easymotion.git'
@@ -74,7 +73,7 @@ endif
  Bundle 'vim-scripts/PDV--phpDocumentor-for-Vim.git'
  Bundle 'arnaud-lb/vim-php-namespace'
  Bundle 'brookhong/DBGPavim.git'
- Bundle 'shawncplus/phpcomplete.vim'
+ " Bundle 'shawncplus/phpcomplete.vim'
  
 
 "--------------------
@@ -100,6 +99,13 @@ endif
 
  " non github repos
  " Bundle 'git://git.wincent.com/command-t.git'
+
+"--------------------
+" markdown
+"--------------------
+Bundle 'plasticboy/vim-markdown'
+
+
 
  filetype plugin indent on     " required!
  "

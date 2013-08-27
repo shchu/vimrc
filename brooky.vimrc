@@ -524,7 +524,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " For YankRing.vim
 " http://www.vim.org/scripts/script.php?script_id=1234
 "--------------------
-nnoremap <silent> <F2> :YRShow<CR>
+nnoremap <silent> <leader><leader>y :YRShow<CR>
 
 
 "--------------------
@@ -554,8 +554,8 @@ syntax on
 "--------------------
 " auto build php after saving files
 "--------------------
-autocmd BufWritePost *.php make %
-autocmd BufWritePost *.php cwindow
+" autocmd BufWritePost *.php make %
+" autocmd BufWritePost *.php cwindow
 
 
 "--------------------
@@ -618,3 +618,9 @@ imap <leader>z <C-y>,
 "--------------------
 vnoremap / <Esc>/\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
+
+"--------------------
+" youcompeleteme
+"--------------------
+let g:ycm_filetype_specific_completion_to_disable = {"php":1}
+

@@ -24,7 +24,7 @@ set hlsearch		" search highlighting
 
 if has("gui_running")	" GUI color and font settings
   set guifont=Osaka-Mono:h20
-  set background=dark 
+  set background=dark
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
   colors moria
@@ -65,13 +65,13 @@ set tm=500
    set shiftwidth=4
 
    au FileType Makefile set noexpandtab
-"}      							
+"}
 
 " status line {
 set laststatus=2
-set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \ 
-set statusline+=\ \ \ [%{&ff}/%Y] 
-set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\ 
+set statusline=\ %{HasPaste()}%<%-15.25(%f%)%m%r%h\ %w\ \
+set statusline+=\ \ \ [%{&ff}/%Y]
+set statusline+=\ \ \ %<%20.30(%{hostname()}:%{CurDir()}%)\
 set statusline+=%=%-10.(%l,%c%V%)\ %p%%/%L
 
 function! CurDir()
@@ -97,53 +97,53 @@ autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-"--------------------------------------------------------------------------- 
-" Tip #382: Search for <cword> and replace with input() in all open buffers 
-"--------------------------------------------------------------------------- 
-fun! Replace() 
-    let s:word = input("Replace " . expand('<cword>') . " with:") 
-    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
-    :unlet! s:word 
-endfun 
+"---------------------------------------------------------------------------
+" Tip #382: Search for <cword> and replace with input() in all open buffers
+"---------------------------------------------------------------------------
+fun! Replace()
+    let s:word = input("Replace " . expand('<cword>') . " with:")
+    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge'
+    :unlet! s:word
+endfun
 
 
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 " USEFUL SHORTCUTS
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 " set leader to ,
 let mapleader=","
 let g:mapleader=","
 
 " quick alias to leave vim
-nmap <leader>w :x<CR> 
+nmap <leader>w :x<CR>
 nmap <leader>q :q!<CR>
 
 "replace the current word in all opened buffers
 map <leader>r :call Replace()<CR>
 
 " open the error console
-map <leader>er :botright cope<CR> 
+map <leader>er :botright cope<CR>
 " move to next error
 map <leader>] :cn<CR>
 " move to the prev error
 map <leader>[ :cp<CR>
 
 " --- move around splits {
-" move to and maximize the below split 
-map <C-J> <C-W>j<C-W>_
-" move to and maximize the above split 
-map <C-K> <C-W>k<C-W>_
-" move to and maximize the left split 
-nmap <c-h> <c-w>h<c-w><bar>
-" move to and maximize the right split  
-nmap <c-l> <c-w>l<c-w><bar>
-set wmw=0                     " set the min width of a window to 0 so we can maximize others 
-set wmh=0                     " set the min height of a window to 0 so we can maximize others
+    " move to and maximize the below split
+    map <C-J> <C-W>j<C-W>_
+    " move to and maximize the above split
+    map <C-K> <C-W>k<C-W>_
+    " move to and maximize the left split
+    nmap <c-h> <c-w>h<c-w><bar>
+    " move to and maximize the right split
+    nmap <c-l> <c-w>l<c-w><bar>
+    set wmw=0                     " set the min width of a window to 0 so we can maximize others
+    set wmh=0                     " set the min height of a window to 0 so we can maximize others
 " }
 
 " move around tabs. conflict with the original screen top/bottom
 " comment them out if you want the original H/L
-" go to prev tab 
+" go to prev tab
 " map <S-H> gT
 " go to next tab
 " map <S-L> gt
@@ -151,7 +151,7 @@ set wmh=0                     " set the min height of a window to 0 so we can ma
 " new tab
 map <C-t><C-t> :tabnew<CR>
 " close tab
-map <C-t><C-w> :tabclose<CR> 
+map <C-t><C-w> :tabclose<CR>
 
 " ,/ turn off search highlighting
 nmap <leader>/ :set hls!<CR>
@@ -295,7 +295,7 @@ colorscheme koehler
 "---------------------------------------------
 " use w!! to write protected files
 "---------------------------------------------
-cmap w!! %!sudo tee > /dev/null % 
+cmap w!! %!sudo tee > /dev/null %
 
 
 "---------------------------------------------
@@ -306,21 +306,21 @@ map <C-S-c>  "+y<CR>
 map <C-S-v> "+p<CR>
 
 
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 " ENCODING SETTINGS
-"--------------------------------------------------------------------------- 
-set encoding=utf-8                                  
+"---------------------------------------------------------------------------
+set encoding=utf-8
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,utf-8,big5,gb2312,latin1
 
 fun! ViewUTF8()
-	set encoding=utf-8                                  
+	set encoding=utf-8
 	set termencoding=big5
 endfun
 
 fun! UTF8()
-	set encoding=utf-8                                  
+	set encoding=utf-8
 	set termencoding=big5
 	set fileencoding=utf-8
 	set fileencodings=ucs-bom,big5,utf-8,latin1
@@ -333,9 +333,9 @@ endfun
 
 
 
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 " PLUGIN SETTINGS
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 " Plugins {
 
     " PIV {
@@ -351,7 +351,7 @@ endfun
     " AutoClose {
         " Inserts matching bracket, paren, brace or quote  {
         " fixed the arrow key problems caused by AutoClose
-        if !has("gui_running")	
+        if !has("gui_running")
            set term=linux
            imap OA <ESC>ki
            imap OB <ESC>ji
@@ -393,7 +393,7 @@ endfun
             \ },
             \ 'fallback': 'find %s -type f'
         \ }
-        
+
     " }
 
     " EasyMotion {
@@ -426,7 +426,7 @@ endfun
         let g:UltiSnipsExpandTrigger = "<c-j>"
         " let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
     " }
-    
+
     " Tabularize {
         nmap <Leader>a& :Tabularize /&<CR>
         vmap <Leader>a& :Tabularize /&<CR>
@@ -472,11 +472,11 @@ endfun
             \ }
 
         " toggle TagBar with F7
-        " nnoremap <silent> <F7> :TagbarToggle<CR> 
+        " nnoremap <silent> <F7> :TagbarToggle<CR>
         " set focus to TagBar when opening it
         let g:tagbar_autofocus = 1
     "}
-    
+
     " PowerLine {
         " let g:Powerline_symbols = 'fancy' " require fontpatcher
     " }
@@ -542,9 +542,9 @@ autocmd FileType javascript set errorformat=%f(%l):\ %m
 " For phpDocumentor (pdv)
 " Ref: https://github.com/vim-scripts/PDV--phpDocumentor-for-Vim
 "--------------------
-inoremap <leader>pd <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <leader>pd :call PhpDocSingle()<CR> 
-vnoremap <leader>pd :call PhpDocRange()<CR> 
+inoremap <leader>pd <ESC>:call PhpDocSingle()<CR>i
+nnoremap <leader>pd :call PhpDocSingle()<CR>
+vnoremap <leader>pd :call PhpDocRange()<CR>
 
 "--------------------
 " fix bug: something breaks the syntax on
@@ -602,7 +602,7 @@ endfunction
 
 
 "--------------------
-"Markdown to HTML  
+"Markdown to HTML
 "--------------------
 nmap <leader>md :%!/usr/local/bin/Markdown.pl --html4tags <cr>
 
@@ -623,4 +623,3 @@ vnoremap ? <Esc>?\%><C-R>=line("'<")-1<CR>l\%<<C-R>=line("'>")+1<CR>l
 " youcompeleteme
 "--------------------
 let g:ycm_filetype_specific_completion_to_disable = {"php":1}
-

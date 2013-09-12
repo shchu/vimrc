@@ -190,12 +190,16 @@ cmap cd. lcd %:p:h
    inoremap <C-u>5 <esc>yypVr^A
 "}
 
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 " PROGRAMMING SHORTCUTS
-"--------------------------------------------------------------------------- 
+"---------------------------------------------------------------------------
 
-" Ctrl-[ jump out of the tag stack (undo Ctrl-])
-map <C-[> <ESC>:po<CR>
+" working with tag + tab {
+    " Ctrl-[ jump out of the tag stack (undo Ctrl-])
+    " map <C-[> <ESC>:po<CR>
+    " open tag in new tab
+    nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+" }
 
 " ,g generates the header guard
 map <leader>g :call IncludeGuard()<CR>
@@ -517,6 +521,7 @@ set tags=tags;          " 使用 tags 這個檔案 for jump between code
 " learn from
 " http://stackoverflow.com/questions/563616/vim-and-ctags-tips-and-tricks
 "---------------------------------------------
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 
@@ -524,7 +529,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " For YankRing.vim
 " http://www.vim.org/scripts/script.php?script_id=1234
 "--------------------
-nnoremap <silent> <leader><leader>y :YRShow<CR>
+nnoremap <silent> <leader>y :YRShow<CR>
 
 
 "--------------------

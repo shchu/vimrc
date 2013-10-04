@@ -47,6 +47,7 @@ endif
 " general programming
 "--------------------
  Bundle 'tpope/vim-fugitive'
+ Bundle 'editorconfig/editorconfig-vim'
 
  " syntac checking for lots of languages
  Bundle "scrooloose/syntastic"
@@ -105,6 +106,10 @@ endif
 "--------------------
 Bundle 'plasticboy/vim-markdown'
 
+"--------------------
+" jade
+"--------------------
+Bundle 'digitaltoad/vim-jade'
 
 
  filetype plugin indent on     " required!

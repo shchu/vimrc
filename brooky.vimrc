@@ -633,8 +633,7 @@ let g:ycm_filetype_specific_completion_to_disable = {"php":1}
 " syntastic
 "--------------------
 let g:syntastic_auto_loc_list=1
-let g:syntastic_quiet_warnings=1
-
+let g:syntastic_quiet_messages = {"level": "warnings"}
 
 "--------------------
 " function for Move current window between tabs  Edit    Talk0

@@ -82,7 +82,7 @@ endif
 "--------------------
  " haml and sass
  Bundle 'tpope/vim-haml'
- Bundle 'mattn/zencoding-vim'
+ Bundle 'mattn/emmet-vim'
 
 "--------------------
 " for javascript
